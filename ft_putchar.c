@@ -1,19 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rokerjea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/26 18:56:54 by rokerjea          #+#    #+#             */
-/*   Updated: 2021/07/26 18:57:03 by rokerjea         ###   ########.fr       */
+/*   Created: 2021/07/26 14:58:27 by rokerjea          #+#    #+#             */
+/*   Updated: 2021/07/26 15:15:29 by rokerjea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalnum(int c)
+#include <unistd.h>
+
+void	ft_putchar_fd(char c, int fd)
 {
-	if (c < '0' || (c > '9' && c < 'A') || (c > 'Z' && c < 'a') || c > 'z')
-		return (0);
-	else
-		return (1);
+	write (fd, &c, 1);
+}
+
+int 	main()
+{
+	ft_putchar_fd('u', 1);
+	return (0);	
 }
