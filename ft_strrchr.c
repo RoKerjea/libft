@@ -6,37 +6,24 @@
 /*   By: rokerjea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/16 13:47:27 by rokerjea          #+#    #+#             */
-/*   Updated: 2021/07/16 14:11:56 by rokerjea         ###   ########.fr       */
+/*   Updated: 2021/07/27 20:10:25 by rokerjea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 char	*ft_strrchr(const char *s, int c)
 {
-	int i;
+	int				i;
+	unsigned char	needle;
 
-	i= 0;
+	i = 0;
+	needle = (unsigned char)c;
 	while (s[i])
 		i++;
 	while (i >= 0)
 	{
-		if (s[i]  == c)
+		if (s[i] == needle)
 			return ((char *)s + i);
 		i--;
 	}
 	return (0);
-}
-#include <stdio.h>
-#include <string.h>
-
-int	main()
-{
-	char str[17] = "This is a test";
-	int c;
-	c = 'T';
-	printf("%s\n", strrchr(str, c));
-
-	char str2[17] = "This is a test";
-	int c2;
-	c2 = 'T';
-	printf("%s\n", ft_strrchr(str2, c2));
 }

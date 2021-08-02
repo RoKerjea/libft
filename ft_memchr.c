@@ -6,35 +6,26 @@
 /*   By: rokerjea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 13:28:00 by rokerjea          #+#    #+#             */
-/*   Updated: 2021/07/19 14:04:57 by rokerjea         ###   ########.fr       */
+/*   Updated: 2021/07/27 20:11:53 by rokerjea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-void *ft_memchr(const void*s, int c, size_t n)
+void	*ft_memchr(const void*s, int c, size_t n)
 {
-	int	i;
-	unsigned char *src;
+	unsigned long	i;
+	unsigned char	*src;
+	unsigned char	needle;
 
 	src = (unsigned char *)s;
+	needle = (unsigned char)c;
 	i = 0;
-	while (i < n && src[i])
+	while (i < n)
 	{
-		if (src[i] == c)
-			return ((char *)src + i);
+		if (src[i] == needle)
+			return ((void *)&src[i]);
 		i++;
 	}
 	return (0);
-}
-
-#include <stdio.h>
-#include <string.h>
-
-int	main()
-{
-	char str[16] = "This is a test.";
-	int c = '.';
-	printf ("%s\n", memchr(str, c, 14));
-	printf ("%s\n", memchr(str, c, 14));
 }

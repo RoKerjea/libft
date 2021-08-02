@@ -6,7 +6,7 @@
 /*   By: rokerjea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 17:57:17 by rokerjea          #+#    #+#             */
-/*   Updated: 2021/07/19 19:04:04 by rokerjea         ###   ########.fr       */
+/*   Updated: 2021/07/27 16:48:54 by rokerjea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	int srclen;
-	int i;
+	int				srclen;
+	unsigned long	i;
 
 	srclen = 0;
 	i = 0;
@@ -30,16 +30,4 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 	}
 	dst[i] = '\0';
 	return (srclen);
-}
-
-#include <stdio.h>
-#include <string.h>
-int main ()
-{
-	 char str[17] = "This is a test.";
-	 char str2[6] = "Nope";
-	 char str3[17] = "This is a test.";
-	 char str4[6] = "Nope";
-	 printf ("%lu\n", strlcpy(str, str2, 2));
-	 printf ("%lu\n", ft_strlcpy(str3, str4, 2));
 }

@@ -1,19 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rokerjea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/26 18:56:54 by rokerjea          #+#    #+#             */
-/*   Updated: 2021/07/27 15:08:20 by rokerjea         ###   ########.fr       */
+/*   Created: 2021/07/21 16:51:26 by rokerjea          #+#    #+#             */
+/*   Updated: 2021/07/27 16:10:45 by rokerjea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalnum(int c)
+#include <stdlib.h>
+
+char	*ft_strdup(const char *s1)
 {
-	if (c < '0' || (c > '9' && c < 'A') || (c > 'Z' && c < 'a') || c > 'z')
-		return (0);
-	else
-		return (1);
+	char	*s2;
+	int		i;
+
+	i = 0;
+	s2 = malloc(sizeof(*s1));
+	while (s1[i])
+	{
+		s2[i] = s1[i];
+		i++;
+	}
+	s2[i] = '\0';
+	return (s2);
+}
+
+#include <stdio.h>
+#include <string.h>
+
+int	main()
+{
+	printf("%s\n", ft_strdup("test"));
+	printf("%s\n", strdup("test"));
+	return (0);
 }

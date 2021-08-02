@@ -6,16 +6,16 @@
 /*   By: rokerjea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 14:05:13 by rokerjea          #+#    #+#             */
-/*   Updated: 2021/07/19 15:04:54 by rokerjea         ###   ########.fr       */
+/*   Updated: 2021/07/27 17:06:13 by rokerjea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-int	ft_memcmp (const void *s1, const void *s2, size_t n)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	int i;
-	unsigned char *str1;
-	unsigned char *str2;
+	unsigned long 	i;
+	unsigned char	*str1;
+	unsigned char	*str2;
 
 	i = 0;
 	str1 = (unsigned char *)s1;
@@ -27,14 +27,4 @@ int	ft_memcmp (const void *s1, const void *s2, size_t n)
 		i++;
 	}
 	return (0);
-}
-
-#include <stdio.h>
-#include <string.h>
-int	main()
-{
-	char str[16] = "This is a test.";
-	char str2[16] = "This is nothing.";
-	printf ("%i\n", memcmp(str, str2, 10));
-	printf ("%i\n", ft_memcmp(str, str2, 10));
 }

@@ -6,13 +6,12 @@
 /*   By: rokerjea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/23 16:53:24 by rokerjea          #+#    #+#             */
-/*   Updated: 2021/07/23 20:56:00 by rokerjea         ###   ########.fr       */
+/*   Updated: 2021/08/02 10:37:50 by rokerjea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-#include <stdio.h>
 int	ft_isinstr(char c, const char *set)
 {
 	int	i;
@@ -39,33 +38,19 @@ char	*ft_strtrim(char const *s1, char const *set)
 	k = 0;
 	while (s1[j])
 		j++;
-	printf ("len is %i \n", j);
 	while (ft_isinstr(s1[i], set))
 		i++;
-	printf ("start is %i \n", i);
 	j--;
 	while (ft_isinstr(s1[j], set))
 		j--;
-	printf ("end is %i \n", j);
-	
-	printf ("newlen is %i \n", (j - i));
-	res = malloc(sizeof(char) * (j - i + 1));
-	while (i <= j)
+	if (j <= i)
+		res = malloc(sizeof(char) * 1);
+	else
 	{
-		res[k] = s1[i];
-		i++;
-		k++;
+		res = malloc(sizeof(char) * (j - i + 1));
+		while (i <= j)
+			res[k++] = s1[i++];
 	}
 	res[k] = '\0';
 	return (res);
-}
-
-#include <stdio.h>
-
-int	main()
-{
-	char str[19] = "abbcpouetccbbaa";
-	char set[3] = "abc";
-	printf ("%s\n", ft_strtrim(str, set));
-	return (0);
 }
