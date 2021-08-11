@@ -1,41 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rokerjea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/15 15:56:25 by rokerjea          #+#    #+#             */
-/*   Updated: 2021/08/11 17:44:26 by rokerjea         ###   ########.fr       */
+/*   Created: 2021/08/11 16:24:45 by rokerjea          #+#    #+#             */
+/*   Updated: 2021/08/11 17:27:39 by rokerjea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
-{	
-	unsigned long	i;
-	char			*csrc;
-	char			*cdst;
+void	ft_lstadd_back(t_list **alst, t_list *new)
+{
+	t_list	*maillon;
 
-	csrc = (char *) src;
-	cdst = (char *) dst;
-	i = 0;
-	if (dst > src)
+	if (!alst || !new)
+		return ;
+	if (!*alst)
 	{
-		while (len > 0)
-		{
-			cdst[len - 1] = csrc[len - 1];
-			len--;
-		}
+		*alst = new;
+		return ;
 	}
-	else
-	{
-		while (i < len)
-		{
-			cdst[i] = csrc[i];
-			i++;
-		}
-	}
-	return (dst);
+	maillon = ft_lstlast(*alst);
+	if (maillon)
+		maillon->next = new;
 }

@@ -1,41 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rokerjea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/15 15:56:25 by rokerjea          #+#    #+#             */
-/*   Updated: 2021/08/11 17:44:26 by rokerjea         ###   ########.fr       */
+/*   Created: 2021/07/26 14:58:27 by rokerjea          #+#    #+#             */
+/*   Updated: 2021/07/27 16:28:58 by rokerjea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include <unistd.h>
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
-{	
-	unsigned long	i;
-	char			*csrc;
-	char			*cdst;
+void	ft_putchar_fd(char c, int fd)
+{
+	write (fd, &c, 1);
+}
 
-	csrc = (char *) src;
-	cdst = (char *) dst;
-	i = 0;
-	if (dst > src)
-	{
-		while (len > 0)
-		{
-			cdst[len - 1] = csrc[len - 1];
-			len--;
-		}
-	}
-	else
-	{
-		while (i < len)
-		{
-			cdst[i] = csrc[i];
-			i++;
-		}
-	}
-	return (dst);
+int	main()
+{
+	ft_putchar_fd('u', 1);
+	return (0);
 }

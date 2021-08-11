@@ -1,41 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rokerjea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/15 15:56:25 by rokerjea          #+#    #+#             */
-/*   Updated: 2021/08/11 17:44:26 by rokerjea         ###   ########.fr       */
+/*   Created: 2021/08/11 18:22:47 by rokerjea          #+#    #+#             */
+/*   Updated: 2021/08/11 19:00:42 by rokerjea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "libft.h"
+#include <stdlb.h>
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
-{	
-	unsigned long	i;
-	char			*csrc;
-	char			*cdst;
+void	ft_lstclear(t_list **lst, void (*del)(void*))
+{
+	t_list *maillon;
 
-	csrc = (char *) src;
-	cdst = (char *) dst;
-	i = 0;
-	if (dst > src)
+	maillon = *lst;
+	while(maillon)
 	{
-		while (len > 0)
-		{
-			cdst[len - 1] = csrc[len - 1];
-			len--;
-		}
+	ft_lstdelone(maillon, del);
+	maillon = maillon->next;
 	}
-	else
-	{
-		while (i < len)
-		{
-			cdst[i] = csrc[i];
-			i++;
-		}
-	}
-	return (dst);
+	**lst = NULL;
 }

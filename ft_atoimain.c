@@ -1,25 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rokerjea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/26 15:15:37 by rokerjea          #+#    #+#             */
-/*   Updated: 2021/08/11 17:46:15 by rokerjea         ###   ########.fr       */
+/*   Created: 2021/07/19 16:46:17 by rokerjea          #+#    #+#             */
+/*   Updated: 2021/07/27 20:37:36 by rokerjea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_putstr_fd(char *s, int fd)
+int	ft_atoi(const char *str)
 {
+	int	res;
 	int	i;
+	int	neg;
 
 	i = 0;
-	while (s[i])
+	neg = 0;
+	res = 0;
+	if (str[i] == '+' || str[i] == '-')
 	{
-		write (fd, &s[i], 1);
+		if (str[i] == '-')
+			neg = 1;
 		i++;
 	}
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		res = res * 10;
+		res += str[i] - '0';
+		i++;
+	}
+	if (neg == 1)
+		res *= -1;
+	return (res);
+}
+
+#include <stdlib.h>
+#include <stdio.h>
+
+int	main()
+{
+	char str[11] = "-2147483648";
+	printf ("%i\n", atoi(str));
+	printf ("%i\n", ft_atoi(str));
 }

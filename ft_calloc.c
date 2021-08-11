@@ -6,7 +6,7 @@
 /*   By: rokerjea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 20:30:55 by rokerjea          #+#    #+#             */
-/*   Updated: 2021/07/27 17:16:54 by rokerjea         ###   ########.fr       */
+/*   Updated: 2021/08/11 17:41:47 by rokerjea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,6 @@ void	*ft_calloc(size_t count, size_t size)
 	ptr = malloc(count * size);
 	if (!ptr)
 		return (NULL);
-	ft_bzero(ptr, size *count);
+	ft_bzero(ptr, size * count);
 	return (ptr);
 }

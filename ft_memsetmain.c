@@ -1,30 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rokerjea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/19 14:05:13 by rokerjea          #+#    #+#             */
-/*   Updated: 2021/08/11 17:43:48 by rokerjea         ###   ########.fr       */
+/*   Created: 2021/07/14 17:30:26 by rokerjea          #+#    #+#             */
+/*   Updated: 2021/07/27 15:26:35 by rokerjea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
+void	*ft_memset(void *b, int c, size_t len)
 {
-	unsigned long	i;
-	unsigned char	*str1;
-	unsigned char	*str2;
+	int				i;
+	unsigned char	*str;
 
 	i = 0;
-	str1 = (unsigned char *)s1;
-	str2 = (unsigned char *)s2;
-	while (i < n)
+	str = (unsigned char *)b;
+	while (i < len)
 	{
-		if (str1[i] != str2[i])
-			return (str1[i] - str2[i]);
+		str[i] = c;
 		i++;
 	}
-	return (0);
+	return (b);
+}
+
+#include <string.h>
+#include <stdio.h>
+int	main()
+{
+
+	char str[16] = "This is a test."; 
+	memset(str + 2, '$', 10*sizeof(char));
+	printf("expected is \'%s\'\n", str);
+
+	char str2[16] = "This is a test.";
+	ft_memset(str2 + 3, '$', 10*sizeof(char));
+	printf("result is \'%s\'\n", str2);
 }
