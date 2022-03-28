@@ -38,9 +38,11 @@ bonus: $(NAME) $(BONUS_OBJ)
 %.o: %.c %.h
 	$(CC) $(CFLAGS) -c $< -o $@
 
-clean:		${RM} ${OBJECTS} ${OBJECTS_BONUS}
+clean:
+	${RM} ${OBJECTS} ${OBJECTS_BONUS}
 
-fclean:		clean ${RM} ${NAME} 
+fclean:	clean
+		${RM} ${NAME} 
 
 re:			fclean all
 
