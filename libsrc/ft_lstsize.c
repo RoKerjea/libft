@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rokerjea <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: rokerjea <rokerjea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/26 15:15:37 by rokerjea          #+#    #+#             */
-/*   Updated: 2021/07/27 16:38:08 by rokerjea         ###   ########.fr       */
+/*   Created: 2021/08/11 14:41:24 by rokerjea          #+#    #+#             */
+/*   Updated: 2022/06/20 13:08:39 by rokerjea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "../libft.h"
 
-void	ft_putstr_fd(char *s, int fd)
+int	ft_lstsize(t_list *lst)
 {
-	int	i;
+	int	res;
 
-	i = 0;
-	while (s[i])
+	res = 0;
+	while (lst != NULL)
 	{
-		write (fd, &s[i], 1);
-		i++;
+		lst = lst->next;
+		res++;
 	}
+	return (res);
 }

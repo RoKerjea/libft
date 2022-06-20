@@ -1,33 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rokerjea <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: rokerjea <rokerjea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/19 17:57:17 by rokerjea          #+#    #+#             */
-/*   Updated: 2021/07/27 16:48:54 by rokerjea         ###   ########.fr       */
+/*   Created: 2021/07/14 21:17:35 by rokerjea          #+#    #+#             */
+/*   Updated: 2022/06/20 13:07:57 by rokerjea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "../libft.h"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
+void	ft_bzero(void *s, size_t n)
 {
-	int				srclen;
 	unsigned long	i;
+	unsigned char	*str;
 
-	srclen = 0;
 	i = 0;
-	while (src[srclen])
-		srclen++;
-	if (dstsize == 0)
-		return (srclen);
-	while (i < (dstsize - 1) && src[i])
+	str = (unsigned char *)s;
+	while (i < n)
 	{
-		dst[i] = src[i];
+		str[i] = '\0';
 		i++;
 	}
-	dst[i] = '\0';
-	return (srclen);
 }

@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rokerjea <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: rokerjea <rokerjea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 15:05:11 by rokerjea          #+#    #+#             */
-/*   Updated: 2021/08/02 11:27:12 by rokerjea         ###   ########.fr       */
+/*   Updated: 2022/06/20 13:11:05 by rokerjea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "../libft.h"
+
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
 	unsigned long	i;

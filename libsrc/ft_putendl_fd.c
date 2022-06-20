@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rokerjea <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: rokerjea <rokerjea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/14 21:52:23 by rokerjea          #+#    #+#             */
-/*   Updated: 2021/07/27 16:47:42 by rokerjea         ###   ########.fr       */
+/*   Created: 2021/07/26 15:44:21 by rokerjea          #+#    #+#             */
+/*   Updated: 2022/06/20 13:09:25 by rokerjea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-void	*ft_memcpy(void *restrict dst, const void *restrict src, size_t n)
+#include "../libft.h"
+
+void	ft_putendl_fd(char *s, int fd)
 {
-	unsigned long	i;
-	unsigned char	*str;
-	unsigned char	*sstr;
+	int	i;
 
 	i = 0;
-	str = (unsigned char *)dst;
-	sstr = (unsigned char *)src;
-	while (i < n)
+	while (s[i])
 	{
-		str[i] = sstr[i];
+		write (fd, &s[i], 1);
 		i++;
 	}
-	return (dst);
+	write (fd, "\n", 1);
 }

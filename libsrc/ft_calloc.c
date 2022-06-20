@@ -1,22 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast.c                                       :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rokerjea <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: rokerjea <rokerjea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/11 16:10:21 by rokerjea          #+#    #+#             */
-/*   Updated: 2021/08/11 17:25:53 by rokerjea         ###   ########.fr       */
+/*   Created: 2021/07/19 20:30:55 by rokerjea          #+#    #+#             */
+/*   Updated: 2022/06/20 13:06:50 by rokerjea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../libft.h"
 
-t_list	*ft_lstlast(t_list *lst)
+void	*ft_calloc(size_t count, size_t size)
 {
-	if (!lst)
+	void			*ptr;
+
+	ptr = malloc(count * size);
+	if (!ptr)
 		return (NULL);
-	while (lst->next)
-		lst = lst->next;
-	return (lst);
+	ft_bzero(ptr, size * count);
+	return (ptr);
 }
